@@ -1,0 +1,29 @@
+package modelo;
+
+import java.util.List;
+
+import entidades.Alquiler;
+import entidadesDTO.AlquilerDTO;
+import interfaces.AlquilerInterface;
+
+public class AlquilerDAO implements AlquilerInterface{
+
+	@Override
+	public List<AlquilerDTO> listarAlquiler() {
+		
+		return null;
+	}
+
+	@Override
+	public int registrarAlquiler(Alquiler alquiler) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public AlquilerDTO buscarAlquilerId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

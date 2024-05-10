@@ -1,0 +1,69 @@
+package modelo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.List;
+
+import entidades.Conductor;
+import interfaces.ConductorInterface;
+import util.MysqlConexion;
+
+public class ConductorDAO implements ConductorInterface {
+
+	@Override
+	public List<Conductor> listarConductores() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Conductor buscarConductorId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Conductor buscarConductorDni(String dni) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Conductor> buscarConductorApellido(String apellidos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int registrarConductor(Conductor conductor) {
+		
+		int value  =0;
+		Connection cn = null;
+		PreparedStatement psm = null;
+		
+		try {
+			cn =MysqlConexion.getConexion();
+			String sql = "call sp_registrarConductores ( ?, ?, ?, ?, ?)";
+			psm = cn.prepareStatement(sql);
+			psm.setString(1,conductor.getNombre());
+			psm.setString(2, conductor.getApellido());
+			psm.setString(3,conductor.getDni());
+			psm.setString(4, conductor.getTelefono());
+			psm.setString(5, conductor.getCorreo());
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		
+		return 0;
+	}
+
+	@Override
+	public int actualizarConductor(Conductor conductor) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

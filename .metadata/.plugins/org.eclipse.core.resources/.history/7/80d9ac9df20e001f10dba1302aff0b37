@@ -1,0 +1,9 @@
+package dao;
+
+import interfaces.AlquilerInterface;
+
+public class MySqlDAOFactory extends DAOFactory{
+	public AlquilerInterface getAlquiler() {
+		return new MySqlAlquilerDAO();
+	}
+}

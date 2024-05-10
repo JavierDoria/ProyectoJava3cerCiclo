@@ -1,0 +1,6 @@
+127.0.0.1 - - [29/Apr/2024:19:23:07 -0500] "GET / HTTP/1.1" 404 687
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:19:23:10 -0500] "GET /Mantenimiento_curso/listCursos.jsp HTTP/1.1" 200 1356
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:19:23:10 -0500] "GET /Mantenimiento_curso/cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js HTTP/1.1" 404 800
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:19:23:10 -0500] "GET /Mantenimiento_curso/cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js HTTP/1.1" 404 792
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:19:23:10 -0500] "GET /Mantenimiento_curso/code.jquery.com/jquery-latest.js HTTP/1.1" 404 747
+0:0:0:0:0:0:0:1 - - [29/Apr/2024:19:23:11 -0500] "GET /favicon.ico HTTP/1.1" 404 698

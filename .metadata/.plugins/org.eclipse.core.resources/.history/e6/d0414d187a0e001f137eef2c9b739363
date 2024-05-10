@@ -1,0 +1,6 @@
+package entidadesDTO;
+
+public class AlquilerDTO {
+	private int idAlquiler;
+	private String fechaAlquilada,fechaEntregada,placaVehiculo,nombreConductor,nombreTrabajador;
+}

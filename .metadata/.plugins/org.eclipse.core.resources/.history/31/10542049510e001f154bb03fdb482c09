@@ -1,0 +1,39 @@
+package entidades;
+
+public class Vehiculo {
+	private int id;
+	private String vehiculo,placa,tipo;
+	private double precio;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getVehiculo() {
+		return vehiculo;
+	}
+	public void setVehiculo(String vehiculo) {
+		this.vehiculo = vehiculo;
+	}
+	public String getPlaca() {
+		return placa;
+	}
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public double getPrecio() {
+		return precio;
+	}
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+}

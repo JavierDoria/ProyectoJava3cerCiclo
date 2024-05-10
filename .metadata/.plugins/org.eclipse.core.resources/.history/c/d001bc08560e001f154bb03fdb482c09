@@ -1,0 +1,62 @@
+package modelo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import entidades.Infraccion;
+import entidades.Trabajador;
+import interfaces.InfraccionInterface;
+import util.MysqlConexion;
+
+public class InfraccionDAO implements InfraccionInterface{
+
+	@Override
+	public List<Infraccion> listarInfraccion() {
+		
+		List<Infraccion> listarTrabajador = new ArrayList<Infraccion>();
+		Connection cn = null;
+		PreparedStatement psm = null;
+		ResultSet rs = null;
+		try {
+			cn = MysqlConexion.getConexion();
+			String sql = "call sp_listarTrabajadores";
+			psm = cn.prepareStatement(sql);
+			rs= psm.executeQuery();
+			while(rs.next()) {
+				Infraccion infraccion = new Infraccion();
+				infraccion.setId(rs.getInt("id_infraccion"));;
+				infraccion.setNombre(rs.getString("nombre"));
+				infraccion.setMontoPago(rs.getString("montoPago"));
+				listarTrabajador.add(infraccion);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(psm != null) psm.close();
+				if(cn != null) cn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return listarTrabajador;
+	}
+
+	@Override
+	public int registrarInfraccion(Infraccion infraccion) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Infraccion buscarInfraccionId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

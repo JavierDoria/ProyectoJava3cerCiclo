@@ -1,0 +1,13 @@
+package interfaces;
+
+import java.util.List;
+
+import entidades.Alquiler;
+
+public interface AlquilerInterface {
+	
+	public List<Alquiler> listarAlquiler();
+	public int registrarAlquiler(Alquiler alquiler);
+	public Alquiler buscarAlquilerId(int id);
+
+}

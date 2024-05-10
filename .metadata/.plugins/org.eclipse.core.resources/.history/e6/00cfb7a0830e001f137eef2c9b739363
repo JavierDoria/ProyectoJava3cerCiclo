@@ -1,0 +1,67 @@
+package modelo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import entidades.ListaNegra;
+import entidadesDTO.AlquilerDTO;
+import entidadesDTO.ListaNegraDTO;
+import interfaces.ListaNegraInterface;
+import util.MysqlConexion;
+
+public class ListaNegraDAO implements ListaNegraInterface{
+
+	@Override
+	public List<ListaNegraDTO> listarListaNegra() {
+		List<ListaNegraDTO> listarListaNegra = new ArrayList<ListaNegraDTO>();
+		Connection cn = null;
+		PreparedStatement psm = null;
+		ResultSet rs = null;
+		
+		try {
+			 cn = MysqlConexion.getConexion();
+			 String sql ="call sp_listarListaNegra";
+			 psm = cn.prepareStatement(sql);
+			 rs = psm.executeQuery();
+			 while(rs.next()) {
+				 AlquilerDTO listaNegra = new AlquilerDTO();
+				 listaNegra.setIdAlquiler(rs.getInt("idAlquiler"));
+				 listaNegra.setFechaAlquilada(rs.getString("fechaAlquilada"));
+				 listaNegra.setFechaEntrega(rs.getString("fechaEntrega"));
+				 listaNegra.setPlacaVehiculo(rs.getString("placaVehiculo"));
+				 listaNegra.setNombreConductor(rs.getString("nombreConductor"));
+				 listaNegra.setNombreTrabajador(rs.getString("nombreTrabajador"));
+				 listarListaNegra.add(listaNegra);
+			 }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(psm != null) psm.close();
+				if(cn != null) cn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return listarListaNegra;
+	}
+
+	@Override
+	public int registrarListaNegra(ListaNegra listaNegra) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ListaNegraDTO buscarListaNegraId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+}

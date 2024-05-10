@@ -1,0 +1,5 @@
+package entidadesDTO;
+
+public class AlquilerDTO {
+
+}

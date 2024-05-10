@@ -1,0 +1,31 @@
+package modelo;
+
+import java.util.List;
+
+import entidades.ListaNegra;
+import entidadesDTO.ListaNegraDTO;
+import interfaces.ListaNegraInterface;
+
+public class ListaNegraDAO implements ListaNegraInterface{
+
+	@Override
+	public List<ListaNegraDTO> listarListaNegra() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int registrarListaNegra(ListaNegra listaNegra) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ListaNegraDTO buscarListaNegraId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+}

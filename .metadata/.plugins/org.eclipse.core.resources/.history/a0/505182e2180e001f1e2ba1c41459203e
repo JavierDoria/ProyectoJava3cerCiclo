@@ -1,0 +1,8 @@
+package interfaces;
+
+public interface ConductorInterface {
+	
+	public Lis<Conductor> listarConductores();
+	
+
+}

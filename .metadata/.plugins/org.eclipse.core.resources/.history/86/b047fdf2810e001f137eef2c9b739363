@@ -1,0 +1,12 @@
+package interfaces;
+
+import java.util.List;
+
+import entidades.ListaNegra;
+
+public interface ListaNegraInterface {
+	
+	public List<ListaNegra> listarListaNegra();
+	public int registrarListaNegra(ListaNegra listaNegra);
+	public ListaNegra buscarListaNegraId(int id);
+}

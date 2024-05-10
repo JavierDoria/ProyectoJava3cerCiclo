@@ -1,0 +1,76 @@
+package modelo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import entidades.Trabajador;
+import entidades.Vehiculo;
+import interfaces.VehiculoInterface;
+import util.MysqlConexion;
+
+public class VehiculoDAO  implements  VehiculoInterface{
+
+	@Override
+	public List<Vehiculo> listarVehiculos() {
+		List<Vehiculo> listarVehiculos = new ArrayList<Vehiculo>();
+		Connection cn = null;
+		PreparedStatement psm = null;
+		ResultSet rs = null;
+		try {
+			cn = MysqlConexion.getConexion();
+			String sql = "call sp_listaVehiculo";
+			psm = cn.prepareStatement(sql);
+			rs= psm.executeQuery();
+			while(rs.next()) {
+				Trabajador trabajador = new Trabajador();
+				trabajador.setId(rs.getInt("idTrabajador"));;
+				trabajador.setNombre(rs.getString("nomTrabajador"));
+				trabajador.setApellido(rs.getString("apeTrabajador"));
+				trabajador.setDni(rs.getString("dni"));
+				trabajador.setTelefono(rs.getString("telefono"));
+				listarVehiculos.add(vehiculo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(psm != null) psm.close();
+				if(cn != null) cn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return listarVehiculos;
+		return null;
+	}
+
+	@Override
+	public Vehiculo buscarVehiculoPlaca(String placa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int eliminarVehiculoPlaca(String placa) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int eliminarVehiculoId(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int registrarVehiculos(Vehiculo vehiculo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,72 @@
+package modelo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import entidades.Trabajador;
+import interfaces.TrabajadorInterface;
+import util.MysqlConexion;
+
+public class TrabajadorDAO implements TrabajadorInterface{
+
+	@Override
+	public List<Trabajador> listarTrabajadores() {
+		List<Trabajador> listarTrabajador = new ArrayList<Trabajador>();
+		Connection cn = null;
+		PreparedStatement psm = null;
+		ResultSet rs = null;
+		try {
+			cn = MysqlConexion.getConexion();
+			String sql = "call sp_listarTrabajadores";
+			psm = cn.prepareStatement(sql);
+			rs= psm.executeQuery();
+			while(rs.next()) {
+				Trabajador trabajador = new Trabajador();
+				trabajador.setId(rs.getInt("idTrabajador"));;
+				trabajador.setNombre(rs.getString("nomTrabajador"));
+				trabajador.setApellido(rs.getString("apeTrabajador"));
+				trabajador.setDni(rs.getString("dni"));
+				trabajador.setTelefono(rs.getString("telefono"));
+				listarTrabajador.add(trabajador);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return null;
+	}
+
+	@Override
+	public Trabajador buscarTrabajadorId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Trabajador buscarTrabajadorDni(String dni) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Trabajador> buscarTrabajador(String apellido) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int registrarTrabajador(Trabajador trabajador) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int actualizarTrabajador(Trabajador trabajador) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
